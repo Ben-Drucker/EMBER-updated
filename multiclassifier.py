@@ -1,8 +1,9 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import pandas as pd
 
-fams = ['PKA', 'AKT', 'CDK', 'MAPK', 'SRC', 'CK2', 'PKC', 'PIKK']
+fams = pd.read_csv("data/fam_distances_blos62/fams.csv", header = None)[0].tolist()
 
 class Model(nn.Module):
     def __init__(self,conv_drpt=0.0,mlp_drpt=0.0):
